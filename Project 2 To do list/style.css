@@ -6,20 +6,70 @@
     box-sizing: border-box;
 }
 
+/* Default = Day theme */
+body.day {
+    --bg-color: linear-gradient(130deg, #153677, #4e085f);
+    --container-bg: #ffffff;
+    --text-color: #000000;
+    --border-color:rgb(255, 164, 226);
+    --header-bg:linear-gradient(130deg, #153677, #4e085f);
+    --header-text: #ffffff;
+
+    --button-bg: #4CAF50;
+    --button-text: #ffffff;
+    --button-hover: #a1dad85c;
+
+    --dropdown-bg: rgb(205, 230, 255);
+    --dropdown-text: #000000;
+    --switch-bg:linear-gradient(130deg, #153677, #4e085f);
+}
+
+/* Night theme */
+body.night {
+    --bg-color: #282828; /* dark gray instead of pure black */
+    --container-bg: #121212;
+    --text-color: #bebebe;
+    --border-color:#bebebe;
+    --checkbox-color:#bebebe;
+    --header-bg: #1f1f1f;
+    --header-text: #f5f5f5;
+
+    --button-bg: #388e3c;
+    --button-text: #ffffff;
+    --button-hover: #bec0f334;
+
+    --dropdown-bg: #2a2a2a;
+    --dropdown-text: #f5f5f5;
+
+    --switch-bg:#282828;
+
+}
+
 #topmost{
+    background: var(--header-bg);
+    color: var(--header-text);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    transition: background 0.5s ease, color 0.5s ease;
     display: flex;
     flex-direction: row;
     width: 100%;
-    height: 50px;
+    height: 60px;
     justify-content: space-between;
     align-items: center;
-    /* border: white;
-    border-radius: 10px; */
+    padding: 0 20px;
+
+    position: fixed;/*    stay fixed on top */
+    /* top: 0;
+    left: 0; */
+   z-index: 1000;  /*     keep above everything */
+    /* background: white; so text doesn't overlap background */
+    box-shadow: 0 4px 6px rgba(230, 229, 229, 0.1); /* subtle shadow */
+
 }
 
 #topmost h1{
     display: flex;
-    color:#002765;
+    color: var(--header-text);
     align-items: flex-start;
     justify-items: center;
     padding-top: 20px;
@@ -33,10 +83,7 @@
     justify-self: flex-end; */
     padding-right: 20px;
 }
-#dropDownMenu{
-    width: fit-content;
-    margin-left: 8px;
-}
+
 
 #topmost img{
     width: 30px;
@@ -47,19 +94,26 @@
     display: flex;
     width: 100%;
     min-height: 100vh;
-    background: linear-gradient(130deg, #153677, #4e085f );
+    /* background: linear-gradient(130deg, #153677, #4e085f ); */
+    background: var(--bg-color);
+    transition: background 0.5s ease;
     align-items: center;
-    justify-items: center;
-    padding: 10px;
+    justify-content: center;
+     padding: 80px 10px 10px; /* added top padding to push content below header */
+    position: relative; /* important for absolute child positioning */
 }
 
 #container{
     width: 100%;
     max-width: 550px;
-    background-color: #fff;
+    /* background-color: #fff; */
+    background-color: var(--container-bg);
+    color: var(--text-color);
+    transition: background 0.5s ease, color 0.5s ease;
     margin: 100px auto 20px;
     padding: 40px 50px 70px ;
     border-radius: 1.5em;
+    border: 3px solid var(--border-color);
 }
 
 .row{
@@ -83,14 +137,19 @@
 }
 
 #addButton{
-    background-color: #4CAF50;
-    color: white;
+    background-color: var(--button-bg);
+    color: var(--button-text);
     border: none;
     outline: none;
     padding: 17px 35px;
     border-radius: 40px;
     cursor: pointer;
     font-size: 1em;
+    transition: background 0.5s ease;
+}
+
+#addButton:hover {
+    background-color: var(--button-hover);
 }
 
 .task-checkbox {
@@ -117,7 +176,7 @@
 /* Add a checkmark icon */
 .task-checkbox:checked::after {
   content: "✔";
-  color: white;
+  color: var(--checkbox-color);
   font-size: 12px;
   position: absolute;
   top: 50%;
@@ -137,7 +196,8 @@
 /* Keep checkbox + text together */
 #taskList li span {
     flex: 1;               /* makes text take up all available space */
-    margin-left: 8px;      /* some gap from checkbox */
+    margin-left: 8px;  /* some gap from checkbox */
+    color: var(--text-color);     
 }
 
 
@@ -149,9 +209,73 @@
     border: none;
     background: none;
     font-size: 16px;
+    padding: 5px 10px;
+    border-radius: 8px;
+    /* background: var(--button-bg); */
+    color: var(--button-text);
+    transition: background 0.5s ease;
 }
 
 #taskList li button:hover{
-    background-color: lightgray;
+    background-color: var(--button-hover);
+}
+
+#dropDownMenu{
+    width: fit-content;
+    margin-left: 8px;
+    border-radius: 9px;
+    font-size: 14px;
+    background-color: var(--dropdown-bg);
+    color: var(--dropdown-text);
+    border: 1px solid var(--border-color);
+    transition: background 0.5s ease, color 0.5s ease;
+}
+
+#dropDownMenu:hover{
+    /* font-size: 15px; */
+    border: 2px solid var(--border-color);
+}
+
+#switchMode{
+    display: flex;
+    background-color: var(--switch-bg);
+    border-radius: 9px;
+    padding: 3px 4px;
+    /* position: absolute;  /* <-- new */
+    /* top: 20px;           distance from top */
+    /* right: 20px;         distance from right */
+    /* box-shadow: 0 2px 6px rgba(0,0,0,0.2); optional for better look */
+    /* z-index: 10; makes sure it stays above */ 
+    
+}
+
+#night{
+    background-color: rgb(0, 0, 0);
+    border-radius: 10px;
+    padding: 1px;
+    margin: 2px;
+}
+
+#day{
+    background-color: rgb(227, 222, 222);
+    display: flex;
+    border-radius: 10px;
+    padding: 2px;
+    padding-bottom: 3px;
+    align-items: center;
+    justify-content: center;
+}
+
+/* By default (day mode), hide the "day" icon */
+#switchMode #day {
+  display: none;
+}
+
+/* In night mode, hide the "night" icon and show "day" */
+body.night #switchMode #night {
+  display: none;
+}
+body.night #switchMode #day {
+  display: inline;
 }
 
