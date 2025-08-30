@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To do list App</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- following is for icons (delete and edit) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+</head>
+<body>
+    <div id="topmost">
+        <h1>To-do List App <img src="OIP.webp" alt=""></h1>
+
+        
+        <!-- for drop down menu -->
+        <div id="typeOfTask">
+            <label for="dropDownMenu">Filter tasks </label>
+            <select name="dropDownMenu" id="dropDownMenu">
+                <option value="All">All</option>
+                <option value="Pending">Pending</option>
+                <option value="Completed">Completed</option>
+            </select>
+        </div> 
+    </div>
+    
+    <main id="mainBody">
+        <div id="container">
+            <div class="row">
+                <input type="text"  id="input-box" placeholder="Enter your task">
+                <button id="addButton">+ Add</button>
+            </div>
+            <!-- used class instead of id, so i can create multiple copies -->
+            
+            <ul id="taskList">
+                
+                <!-- <li class="task">
+                    <input type="checkbox" class="task-checkbox">               
+                    <input type="text" class="task-input" placeholder="Enter Task">
+
+                    <button class="edit-btn">Edit</button>
+                    <button class="delete-btn">Delete</button>
+                </li> -->
+                
+            </ul>
+            
+             
+            
+        </div>
+        <div>
+                
+        </div>
+    </main>
+<script src="app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,157 @@
+/* the following properties are applied to all html elements */
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+#topmost{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 50px;
+    justify-content: space-between;
+    align-items: center;
+    /* border: white;
+    border-radius: 10px; */
+}
+
+#topmost h1{
+    display: flex;
+    color:#002765;
+    align-items: flex-start;
+    justify-items: center;
+    padding-top: 20px;
+    margin-bottom: 20px;
+    padding-left: 20px;
+}
+
+#topmost #typeOfTask{
+    display:flex;
+    /* align-self: flex-end;
+    justify-self: flex-end; */
+    padding-right: 20px;
+}
+#dropDownMenu{
+    width: fit-content;
+    margin-left: 8px;
+}
+
+#topmost img{
+    width: 30px;
+    margin-left: 10px;
+}
+
+#mainBody{
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(130deg, #153677, #4e085f );
+    align-items: center;
+    justify-items: center;
+    padding: 10px;
+}
+
+#container{
+    width: 100%;
+    max-width: 550px;
+    background-color: #fff;
+    margin: 100px auto 20px;
+    padding: 40px 50px 70px ;
+    border-radius: 1.5em;
+}
+
+.row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(228, 222, 222);
+    border-radius: 30px;
+    padding-left: 20px;
+    margin-bottom: 25px;
+}
+#input-box{
+    /* flex 1 means this will take full width available of the flex container */
+    flex: 1; 
+    background: transparent;
+    /* only padding means this will be applied on all 4 sides */
+    padding: 10px;
+    border: none;
+    outline: none;
+    font-size: 1em;
+}
+
+#addButton{
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    outline: none;
+    padding: 17px 35px;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.task-checkbox {
+  
+  width: 18px;
+  height: 18px;
+  border: 2px solid #555;
+  border-radius: 4px;
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  margin-right: 8px;
+  vertical-align: middle;
+  transition: all 0.2s ease;
+}
+
+/* When checked, fill with a nice color */
+.task-checkbox:checked {
+  background-color: #46eb4e; /* green fill */
+  border-color: #46eb4e;
+  /* text-decoration-line: line-through; */
+}
+
+/* Add a checkmark icon */
+.task-checkbox:checked::after {
+  content: "✔";
+  color: white;
+  font-size: 12px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -60%);
+}
+
+#taskList li {
+    display: flex;
+    align-items: center;        /* keeps checkbox, text, and buttons aligned */
+    justify-content: space-between; /* pushes text to left, buttons to right */
+    padding: 5px 10px;
+    margin: 5px 0;
+    list-style: none; /* optional: remove default bullet */
+}
+
+/* Keep checkbox + text together */
+#taskList li span {
+    flex: 1;               /* makes text take up all available space */
+    margin-left: 8px;      /* some gap from checkbox */
+}
+
+
+
+/* Buttons styling */
+#taskList li button {
+    margin-left: 5px;
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-size: 16px;
+}
+
+#taskList li button:hover{
+    background-color: lightgray;
+}
+
