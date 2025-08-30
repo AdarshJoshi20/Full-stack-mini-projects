@@ -1,3 +1,5 @@
+
+
 const addButton = document.getElementById('addButton');
 const taskList = document.getElementById('taskList');
 const inputBox = document.getElementById('input-box');
@@ -145,6 +147,35 @@ document.getElementById('dropDownMenu').addEventListener('change', function() {
         }
     });
 });
+
+const daySwitch = document.getElementById('day');
+const nightSwitch = document.getElementById('night');
+const body = document.body;
+
+// Apply saved theme on page load
+window.addEventListener("load", () => {
+    const savedTheme = localStorage.getItem("theme") || "day";
+    body.classList.add(savedTheme);
+});
+
+// Switch to day mode
+daySwitch.addEventListener("click", () => {
+    body.classList.remove("night");
+    body.classList.add("day");
+    localStorage.setItem("theme", "day");
+});
+
+// Switch to night mode
+nightSwitch.addEventListener("click", () => {
+    body.classList.remove("day");
+    body.classList.add("night");
+    localStorage.setItem("theme", "night");
+});
+
+
+
+
+
 
 
 
