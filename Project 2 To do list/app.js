@@ -75,6 +75,7 @@ addButton.addEventListener('click', () => {
     saveData();
 });
 
+// adding new task when "Enter" is pressed
 inputBox.addEventListener('keydown', function(e)
 {
     if(e.key === "Enter")
@@ -114,6 +115,7 @@ function saveData() {
     localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
+
 // Load tasks from localStorage
 function loadTasks() {
     const stored = JSON.parse(localStorage.getItem('tasks')) || [];
@@ -121,6 +123,31 @@ function loadTasks() {
 }
 
 loadTasks();
+
+const dropDown = document.getElementById("dropDownMenu");
+// displays all tasks when "All" selected
+// displays unchecked tasks when "Pending" selected
+//displays checked tasks when "Completed" selected
+document.getElementById('dropDownMenu').addEventListener('change', function() {
+    const filter = this.value; // All, Pending, Completed
+    const stored = JSON.parse(localStorage.getItem('tasks')) || [];
+
+    // clear current list
+    taskList.innerHTML = '';
+
+    stored.forEach(task => {
+        if (
+            filter === 'All' ||
+            (filter === 'Completed' && task.completed) ||
+            (filter === 'Pending' && !task.completed)
+        ) {
+            createTask(task);
+        }
+    });
+});
+
+
+
 
 
 
