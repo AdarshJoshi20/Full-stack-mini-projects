@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To do list App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    <title>To do list App</title>
     <link rel="stylesheet" href="style.css">
     <!-- following is for icons (delete and edit) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -12,12 +11,21 @@
 </head>
 <body>
     <div id="topmost">
-        <h1>To-do List App <img src="OIP.webp" alt=""></h1>
+        <!-- <h1>
+            <img src="OIP.webp" alt=""> To-do List App
+        </h1>
         <div id="switchMode">
             <span id="night">🌙</span><span id="day">☀️</span>
+        </div> -->
+
+        <div class="header-top-row">
+            <h1><img src="gradient_logo.png" alt="">VibeCheck</h1>
+            <div id="switchMode">
+                <span id="night">🌙</span><span id="day">☀️</span>
+            </div>
         </div>
         
-        <!-- for drop down menu -->
+        <!-- for drop down menu
         <div id="typeOfTask">
             <label for="dropDownMenu">Filter tasks </label>
             <select name="dropDownMenu" id="dropDownMenu">
@@ -25,7 +33,18 @@
                 <option value="Pending">Pending</option>
                 <option value="Completed">Completed</option>
             </select>
-        </div> 
+        </div>  -->
+        <div class="header-bottom-row">
+            <div id="typeOfTask">
+                <label for="dropDownMenu">Tasks </label>
+                <select name="dropDownMenu" id="dropDownMenu">
+                    <option value="All">All</option>
+                    <option value="Pending">Pending</option>
+                    <option value="Completed">Completed</option>
+                </select>
+            </div>
+        </div>
+
     </div>
     
     <main id="mainBody">
