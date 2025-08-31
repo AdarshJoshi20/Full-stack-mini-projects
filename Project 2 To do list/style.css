@@ -45,49 +45,53 @@ body.night {
 
 }
 
-#topmost{
+
+#topmost {
     background: var(--header-bg);
     color: var(--header-text);
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px rgba(195, 138, 138, 0.1);
     transition: background 0.5s ease, color 0.5s ease;
     display: flex;
-    flex-direction: row;
+    flex-direction: column; /* Stack the top and bottom rows */
     width: 100%;
-    height: 60px;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
-
-    position: fixed;/*    stay fixed on top */
-    /* top: 0;
-    left: 0; */
-   z-index: 1000;  /*     keep above everything */
-    /* background: white; so text doesn't overlap background */
-    box-shadow: 0 4px 6px rgba(230, 229, 229, 0.1); /* subtle shadow */
-
+    height: auto; /* Allow height to adjust to content */
+    padding: 10px 20px;
+    position: fixed;
+    z-index: 1000;
+    gap: 10px; /* Adds space between the top and bottom rows */
 }
 
-#topmost h1{
+.header-top-row, .header-bottom-row {
     display: flex;
+    width: 100%;
+}
+
+.header-top-row {
+    justify-content: space-between; /* Pushes title left, switch right */
+    align-items: center;
+}
+
+.header-bottom-row {
+    justify-content: flex-end; /* Pushes filter to the right */
+}
+
+
+#topmost h1 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     color: var(--header-text);
-    align-items: flex-start;
-    justify-items: center;
-    padding-top: 20px;
-    margin-bottom: 20px;
-    padding-left: 20px;
-}
-
-#topmost #typeOfTask{
-    display:flex;
-    /* align-self: flex-end;
-    justify-self: flex-end; */
-    padding-right: 20px;
+    margin: 0;
+    padding: 0;
+    font-size: 2.5rem; /* Set a specific font size */
 }
 
 
-#topmost img{
-    width: 30px;
-    margin-left: 10px;
+
+#topmost h1 img{
+    height: 2.0em; /* Match the image height to the font size */
+    width: 2.0em;
+    border-radius: 7px;
 }
 
 #mainBody{
@@ -99,13 +103,13 @@ body.night {
     transition: background 0.5s ease;
     align-items: center;
     justify-content: center;
-     padding: 80px 10px 10px; /* added top padding to push content below header */
+    padding: 120px 10px 10px; /* added top padding to push content below header */
     position: relative; /* important for absolute child positioning */
 }
 
 #container{
     width: 100%;
-    max-width: 550px;
+    max-width: 850px;
     /* background-color: #fff; */
     background-color: var(--container-bg);
     color: var(--text-color);
@@ -241,12 +245,6 @@ body.night {
     background-color: var(--switch-bg);
     border-radius: 9px;
     padding: 3px 4px;
-    /* position: absolute;  /* <-- new */
-    /* top: 20px;           distance from top */
-    /* right: 20px;         distance from right */
-    /* box-shadow: 0 2px 6px rgba(0,0,0,0.2); optional for better look */
-    /* z-index: 10; makes sure it stays above */ 
-    
 }
 
 #night{
@@ -279,3 +277,76 @@ body.night #switchMode #day {
   display: inline;
 }
 
+
+/* ================================== */
+/* Responsive Design         */
+/* ================================== */
+
+/* Apply these styles for screens 768px wide or smaller */
+@media (max-width: 768px) {
+
+    /* --- Header Adjustments --- */
+    #topmost {
+        flex-direction: column; /* Stack header items vertically */
+        height: auto;           /* Allow header height to grow */
+        padding: 10px;
+        align-items: center;    /* Center-align the items */
+        gap: 10px;              /* Add space between stacked items */
+    }
+
+    #topmost h1 {
+        padding: 0;             /* Remove extra padding */
+        margin: 0;
+        font-size: 2em;      /* Slightly smaller title */
+    }
+
+    #topmost h1 img{
+        width: 2.0em;
+        height: auto;
+    }
+
+    #topmost #typeOfTask {
+        padding-right: 0;       /* Remove side padding */
+        width: 100%;            /* Make filter take full width */
+        display: flex;
+        justify-content: flex-end; /* Center the filter dropdown */
+    }
+
+    /* --- Main Body and Container Adjustments --- */
+    #mainBody {
+        /* Add more top padding to account for the taller header */
+        padding-top: 150px;
+    }
+
+    #container {
+        /* Reduce padding on smaller screens */
+        max-width: 95%;
+        padding: 25px 20px 50px;
+        margin-top: 20px;
+    }
+
+    /* --- Input Field and Button Adjustments --- */
+    .row {
+        flex-direction: column; /* Stack input and button vertically */
+        background-color: transparent; /* Remove the gray background */
+        gap: 15px;              /* Add space between input and button */
+         align-items: center;    /* Center the items horizontally */
+    }
+    
+
+    #input-box {
+        width: 100%;
+        padding: 15px 20px; /* Add this line to increase height */
+        font-size: 16px;    /* Optional: a slightly larger font on mobile */
+        background-color: rgb(228, 222, 222); /* Give input its own background */
+        border-radius: 30px;
+        text-align: center;
+    }
+
+    #addButton {
+    width: 45%; /* Make button smaller, but still large enough to tap easily */
+    max-width: 250px; /* Optional: prevents button from getting too big on tablets */   
+     }
+    
+    
+}
