@@ -6,9 +6,11 @@
     <title>Calculator</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <label for="inputArea" hidden>Input Area</label>
-    <input type="text" id="inputArea">
+<body id="calculator">
+    <div >
+        <input type="text" id="display" readonly>
+    </div>
+    
 
     <div id="utils">
         <button id="history">🕒</button>
@@ -16,30 +18,29 @@
     </div>
 
     <div id="buttonsArea">
-        <button>C</button>
+        <button id="clearDisplay">C</button>
         <button>()</button>
         <button>%</button>
         <button>/</button>
-        <br>
         <button>7</button>
         <button>8</button>
         <button>9</button>
         <button>*</button>
-        <br>
+        
         <button>4</button>
         <button>5</button>
         <button>6</button>
         <button>-</button>
-        <br>
+        
         <button>1</button>
         <button>2</button>
         <button>3</button>
         <button>+</button>
-        <br>
-        <button>+/-</button>
+        
+        <button id="toggleSign">+/-</button>
         <button>0</button>
-        <button>.</button>
-        <button>=</button>
+        <button id="decimalPoint">.</button>
+        <button id="calculate">=</button>
     </div>
     <script src="script.js"></script>
 </body>
